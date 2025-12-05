@@ -1,2 +1,2 @@
 # PlaLLM
-The code of  paper PlaLLM
+The code for  paper PlaLLM
