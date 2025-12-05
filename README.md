@@ -1,2 +1,4 @@
 # PlaLLM
-The code for  paper PlaLLM
+PlaLLM: Exploiting Semantic Plasticity Relationship for Robust Head Pose Estimation via Large Language Models
+![Uploading image.png…]()
+
