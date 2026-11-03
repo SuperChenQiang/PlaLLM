@@ -19,15 +19,6 @@ Head pose estimation (HPE) is important for human–robot interaction, yet occlu
 
 *Framework overview from Fig. 3 of the paper.*
 
-PlaHPE combines a **vision encoding branch** and a **plasticity guidance branch**:
-
-| Component | Role |
-| --- | --- |
-| **SPG: Semantic Plasticity Generation** | Generates hierarchical descriptions of facial keypoints, facial regions, and whole-face rotation, and encodes them as semantic embeddings. |
-| **PRM: Plasticity Relationship Mining** | Establishes cross-modal interactions between visual and textual features at each level to highlight informative facial regions. |
-| **PFI: Plasticity Feature Interaction** | Aggregates multigranularity visual features and selects informative tokens for final head pose prediction. |
-
-During **training**, hierarchical textual knowledge guides the visual branch. During **inference**, only the input image and vision encoding branch are needed; LLM generation and additional textual input are not required.
 
 ## Datasets
 
@@ -49,35 +40,6 @@ The existing [datasets.py](datasets.py) includes loaders for `Pose_300W_LP`, `AF
 - [filename.py](filename.py) contains a helper for generating image filename lists from paired image/annotation files.
 
 The loaders and filename helper import a local `utils` module that is not currently included in this repository. Complete data preprocessing, model, training, and evaluation code are not yet included in the current public snapshot.
-
-## Benchmark Results
-
-Results below are transcribed from **Tables I and II of the paper**. All models are trained on **300W-LP**. Euler-angle errors and MAE are reported in **degrees**; lower is better.
-
-| Test dataset | Model | Backbone | Yaw ↓ | Pitch ↓ | Roll ↓ | MAE ↓ |
-| --- | --- | --- | ---: | ---: | ---: | ---: |
-| AFLW2000 | PlaHPE-R | ResNet-50 | 3.35 | 3.48 | 3.18 | 3.54 |
-| AFLW2000 | **PlaHPE-V** | ViT-B | **3.27** | **3.35** | **3.06** | **3.45** |
-| BIWI | PlaHPE-R | ResNet-50 | 3.54 | 4.41 | 2.98 | 3.64 |
-| BIWI | **PlaHPE-V** | ViT-B | **3.22** | **4.21** | **2.45** | **3.29** |
-
-PlaHPE-V is the default PlaHPE variant in the paper. The paper also reports rotation-vector errors and MAEV; see the full paper for those metrics, comparisons, and ablation studies.
-
-### Experimental Setup
-
-The paper reports the following settings:
-
-| Item | Setting |
-| --- | --- |
-| Input resolution | 224 × 224 |
-| Visual backbones | ResNet-50 / ViT-B |
-| Hierarchical description generation | GPT-5 |
-| Text encoder | Frozen pretrained CLIP ViT-B/16 text encoder |
-| Optimizer | AdamW |
-| Learning rate | Warm-up from 1e-5 to 1e-4, followed by cosine annealing to 1e-7 |
-| Batch size / hardware | 128 / one NVIDIA A800 GPU |
-
-These settings describe the paper’s experiments. The current repository does not contain runnable training/evaluation entry points or pretrained PlaHPE checkpoints.
 
 ## Citation
 
