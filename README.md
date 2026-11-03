@@ -63,13 +63,6 @@ The existing angle conventions are retained for compatibility:
 | `BIWI` | pitch, yaw, roll | radians |
 | `AFLW` / `AFW` | yaw, pitch, roll | degrees |
 
-Run the synthetic data regression checks with:
-
-```bash
-python -m pip install pytest
-python -m pytest -q
-```
-
 ## Citation
 
 If you find this work useful, please cite:
