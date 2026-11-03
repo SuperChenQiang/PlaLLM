@@ -1,19 +1,10 @@
-"""Head pose loaders adapted from 6DRepNet.
-
-Original code: https://github.com/thohemp/6DRepNet/blob/master/sixdrepnet/datasets.py
-Public class names, four-item samples, crop rules, and legacy angle conventions
-are retained. See each loader's docstring for angle order and units.
-"""
-
 import os
 from collections.abc import Callable
 from pathlib import Path
-
 import numpy as np
 import torch
 from PIL import Image, ImageFilter
 from torch.utils.data import Dataset
-
 import utils
 
 PathValue = str | os.PathLike[str]
