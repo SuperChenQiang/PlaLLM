@@ -35,9 +35,8 @@ The paper trains on **300W-LP** and evaluates on **AFLW2000** and **BIWI**. AFLW
 
 | Dataset | Use in the paper | Description | Official source / download |
 | --- | --- | --- | --- |
-| **300W-LP** | Training | Approximately 61K synthesized face images with large pose variations, expanded to approximately 122K with flipping. | [Dataset author’s homepage](https://xiangyuzhu-open.github.io/homepage/) · [Author-provided download](https://drive.google.com/file/d/0B7OEHD3T4eCkVGs0TkhUWFN6N1k/view?usp=sharing) |
-| **AFLW2000-3D** | Evaluation | 2,000 in-the-wild images with fitted 3D faces and 68 facial landmarks. | [Dataset author’s homepage](https://xiangyuzhu-open.github.io/homepage/) · [Author-provided download](https://drive.google.com/file/d/0B7OEHD3T4eCkZXU4Zy1zZVgzUHc/view?resourcekey=0-h0GyCbYRA67dgDbelEFxhA&usp=sharing) |
-| **BIWI Kinect Head Pose** | Evaluation | Approximately 15K frames from 24 sequences of 20 subjects, including RGB, depth, and head pose annotations. | [ETH official dataset page](https://data.vision.ee.ethz.ch/cvl/gfanelli/head_pose/head_forest.html) · [NIST catalog record](https://tsapps.nist.gov/BDbC/Search/Details/490) |
+| **300W-LP** | Training | Approximately 61K synthesized face images with large pose variations, expanded to approximately 122K with flipping. | [download](https://drive.google.com/file/d/0B7OEHD3T4eCkVGs0TkhUWFN6N1k/view?usp=sharing) |
+| **AFLW2000-3D** | Evaluation | 2,000 in-the-wild images with fitted 3D faces and 68 facial landmarks. | [download](https://drive.google.com/file/d/0B7OEHD3T4eCkZXU4Zy1zZVgzUHc/view?resourcekey=0-h0GyCbYRA67dgDbelEFxhA&usp=sharing) |
 
 The 300W-LP and AFLW2000-3D download links are listed on the original dataset author’s homepage. Their [original 3DDFA project page](http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm) is also available as a reference. Please follow each provider’s access conditions and cite the original dataset publications. The ETH endpoint returned HTTP 403 during link checking; the NIST record documents the official BIWI source.
 
