@@ -1,10 +1,12 @@
 import os
 from collections.abc import Callable
 from pathlib import Path
+
 import numpy as np
 import torch
 from PIL import Image, ImageFilter
 from torch.utils.data import Dataset
+
 import utils
 
 PathValue = str | os.PathLike[str]

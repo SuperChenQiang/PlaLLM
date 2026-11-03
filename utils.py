@@ -1,4 +1,5 @@
 from os import PathLike
+
 import numpy as np
 from scipy.io import loadmat
 

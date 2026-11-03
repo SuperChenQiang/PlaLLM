@@ -1,12 +1,16 @@
 import argparse
 from collections.abc import Sequence
 from pathlib import Path
+
 import numpy as np
+
 import utils
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser = argparse.ArgumentParser(
+        description="Generate extension-free sample lists for 300W-LP / AFLW2000."
+    )
     parser.add_argument(
         "--root_dir",
         "--root-dir",
