@@ -95,8 +95,7 @@ If you find this work useful, please cite:
 }
 ```
 
-Machine-readable citation metadata is provided in [CITATION.cff](CITATION.cff). Volume, issue, and final page numbers are omitted because they are not assigned in the available publication metadata.
 
 ## Acknowledgments
 
-The data loading code acknowledges [6DRepNet](https://github.com/thohemp/6DRepNet), and the filename helper acknowledges [Amir Shahroudy](https://github.com/shahroudy). We thank the original authors and the providers of 300W-LP, AFLW2000-3D, and BIWI for making their resources available.
+We thank the original authors and the providers of 300W-LP, AFLW2000-3D, and BIWI for making their resources available.
