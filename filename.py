@@ -1,15 +1,7 @@
-"""Generate extension-free sample lists for 300W-LP / AFLW2000.
-
-Original filename helper credited Amir Shahroudy:
-https://github.com/shahroudy
-"""
-
 import argparse
 from collections.abc import Sequence
 from pathlib import Path
-
 import numpy as np
-
 import utils
 
 
