@@ -17,7 +17,7 @@ Head pose estimation (HPE) is important for human–robot interaction, yet occlu
 
 ![Architecture of PlaHPE, showing the vision encoding branch, plasticity guidance branch, SPG, PRM, and PFI.](assets/framework.png)
 
-*Framework overview from Fig. 3 of the paper.*
+*PlaHPE framework overview.*
 
 
 ## Datasets
@@ -29,7 +29,7 @@ The paper trains on **300W-LP** and evaluates on **AFLW2000** and **BIWI**. AFLW
 | **300W-LP** | Training | Approximately 61K synthesized face images with large pose variations, expanded to approximately 122K with flipping. | [download](https://drive.google.com/file/d/0B7OEHD3T4eCkVGs0TkhUWFN6N1k/view?usp=sharing) |
 | **AFLW2000-3D** | Evaluation | 2,000 in-the-wild images with fitted 3D faces and 68 facial landmarks. | [download](https://drive.google.com/file/d/0B7OEHD3T4eCkZXU4Zy1zZVgzUHc/view?resourcekey=0-h0GyCbYRA67dgDbelEFxhA&usp=sharing) |
 
-The 300W-LP and AFLW2000-3D download links are listed on the original dataset author’s homepage. Their [original 3DDFA project page](http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm) is also available as a reference. Please follow each provider’s access conditions and cite the original dataset publications. The ETH endpoint returned HTTP 403 during link checking; the NIST record documents the official BIWI source.
+Both download links above are provided by Xiangyu Zhu, an author of **Face Alignment Across Large Poses: A 3D Solution (CVPR 2016)**, in the corresponding publication entry on his [official homepage](https://xiangyuzhu-open.github.io/homepage/#selected-publications). The links point to the original author-provided archives, rather than third-party mirrors. See also the [original 3DDFA project page](http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm). Please follow the dataset providers’ access conditions and cite the original dataset publications.
 
 ### Data Format in the Current Repository
 
@@ -39,7 +39,36 @@ The existing [datasets.py](datasets.py) includes loaders for `Pose_300W_LP`, `AF
 - **BIWI:** a preprocessed NumPy `.npz` archive containing `image` and `pose` arrays. The loader reads pose columns in **yaw, pitch, roll** order, in degrees, before converting them to radians. Raw BIWI downloads must be preprocessed into this format.
 - [filename.py](filename.py) contains a helper for generating image filename lists from paired image/annotation files.
 
-The loaders and filename helper import a local `utils` module that is not currently included in this repository. Complete data preprocessing, model, training, and evaluation code are not yet included in the current public snapshot.
+The required MAT annotation and rotation helpers are included in [utils.py](utils.py). Model, training, evaluation, and raw BIWI preprocessing code are not included in the current public snapshot.
+
+### Using the Data Utilities
+
+Use Python 3.10 or later and install the data utility dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+python filename.py --root_dir /path/to/300W_LP --filename files.txt
+```
+
+A relative output filename is resolved under the dataset root. The helper writes sorted, extension-free relative paths; excludes poses outside ±99°; and reports images with missing MAT annotations. It does not change the working directory.
+
+For deterministic data loading, pass `train_mode=False` to `getDataset`. Training-time horizontal flips update both the rotation matrix and angle labels. A custom transform should preserve pose geometry, unless it also updates the targets.
+
+The existing angle conventions are retained for compatibility:
+
+| Loader | Returned angle order | Unit |
+| --- | --- | --- |
+| `Pose_300W_LP` | pitch, yaw, roll | degrees |
+| `AFLW2000` | yaw, pitch, roll | radians |
+| `BIWI` | pitch, yaw, roll | radians |
+| `AFLW` / `AFW` | yaw, pitch, roll | degrees |
+
+Run the synthetic data regression checks with:
+
+```bash
+python -m pip install pytest
+python -m pytest -q
+```
 
 ## Citation
 
