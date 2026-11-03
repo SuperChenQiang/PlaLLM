@@ -1,11 +1,4 @@
-"""MAT annotations and the rotation convention used by the dataset loaders.
-
-The interface and Rz @ Ry @ Rx convention follow 6DRepNet:
-https://github.com/thohemp/6DRepNet/blob/master/sixdrepnet/utils.py
-"""
-
 from os import PathLike
-
 import numpy as np
 from scipy.io import loadmat
 
