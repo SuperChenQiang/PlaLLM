@@ -2,16 +2,6 @@
 
 ## Learning Semantic Plasticity Relationship via Hierarchical Correlational Modeling for Robust Head Pose Estimation
 
-**Tingting Liu\*, Qiang Chen\*, Xi Li\*, Haoting Xia, Zhibing Liu, Hai Liu, Qiuxia Liu, You-Fu Li**
-
-\* Equal contribution.
-
-**IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2026**
-
-[Paper / DOI](https://doi.org/10.1109/TCSVT.2026.3747988) · [Datasets](#datasets) · [Results](#benchmark-results) · [Citation](#citation)
-
-This repository accompanies the paper above. The proposed framework is named **PlaHPE** in the paper; **PlaLLM** is the repository name.
-
 ## Abstract
 
 Head pose estimation (HPE) is important for human–robot interaction, yet occlusion, extreme head angles, and complex lighting remain challenging in practical settings. We propose **PlaHPE**, a plasticity relationship learning framework for robust HPE through hierarchical correlational modeling. The framework builds on two insights: facial features are correlated across different levels, and head rotation changes the relative importance of facial regions. A **Semantic Plasticity Generation (SPG)** module uses large language models to describe facial plasticity at multiple granularities. A dual-branch architecture then combines a **Plasticity Relationship Mining (PRM)** module, which aligns textual and visual features to learn high-level semantic knowledge, with a **Plasticity Feature Interaction (PFI)** module, which aggregates multigranularity features for pose prediction. Experiments on AFLW2000 and BIWI demonstrate improved estimation accuracy and robustness. At inference time, prediction uses only the vision encoding branch, without additional textual input.
