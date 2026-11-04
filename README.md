@@ -54,15 +54,6 @@ A relative output filename is resolved under the dataset root. The helper writes
 
 For deterministic data loading, pass `train_mode=False` to `getDataset`. Training-time horizontal flips update both the rotation matrix and angle labels. A custom transform should preserve pose geometry, unless it also updates the targets.
 
-The existing angle conventions are retained for compatibility:
-
-| Loader | Returned angle order | Unit |
-| --- | --- | --- |
-| `Pose_300W_LP` | pitch, yaw, roll | degrees |
-| `AFLW2000` | yaw, pitch, roll | radians |
-| `BIWI` | pitch, yaw, roll | radians |
-| `AFLW` / `AFW` | yaw, pitch, roll | degrees |
-
 ## Citation
 
 If you find this work useful, please cite:
